@@ -4,3 +4,4 @@
 .Ruserdata
 project_data/*.csv
 .RDataTmp1
+.DS_Store
