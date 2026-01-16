@@ -138,20 +138,47 @@ DimPlot(tumor_breast, reduction = "pca") + NoLegend()
 DimPlot(benign_icc, reduction = "pca") + NoLegend()
 DimPlot(tumor_icc, reduction = "pca") + NoLegend()
 
+#Determine the ‘dimensionality’ of the dataset ####
+
+ElbowPlot(benign_breast)
+ElbowPlot(tumor_breast)
+ElbowPlot(benign_icc)
+ElbowPlot(tumor_icc)
+
+#Cluster the cells ####
+
+benign_breast <- FindNeighbors(benign_breast, dims = 1:12)
+benign_breast <- FindClusters(benign_breast, resolution = 0.5)
+
+tumor_breast <- FindNeighbors(tumor_breast, dims = 1:10)
+tumor_breast <- FindClusters(tumor_breast, resolution = 0.5)
+
+benign_icc <- FindNeighbors(benign_icc, dims = 1:12)
+benign_icc <- FindClusters(benign_icc, resolution = 0.5)
+
+tumor_icc <- FindNeighbors(tumor_icc, dims = 1:9)
+tumor_icc <- FindClusters(tumor_icc, resolution = 0.5)
 
 
+# Run non-linear dimensional reduction (UMAP/tSNE) ####
+benign_breast <- RunUMAP(benign_breast, dims = 1:12)
+DimPlot(benign_breast, reduction = "umap")
 
+tumor_breast <- RunUMAP(tumor_breast, dims = 1:10)
+DimPlot(tumor_breast, reduction = "umap")
 
+benign_icc <- RunUMAP(benign_icc, dims = 1:12)
+DimPlot(benign_icc, reduction = "umap")
 
+tumor_icc <- RunUMAP(tumor_icc, dims = 1:9)
+DimPlot(tumor_icc, reduction = "umap")
 
+#Save/Export Seurat Objects ####
 
-
-
-
-
-
-
-
+saveRDS(benign_breast, file = "../main_rna_project/seurat_objects/clustered/bbclustered.rds")
+saveRDS(tumor_breast, file = "../main_rna_project/seurat_objects/clustered/tbclustered.rds")
+saveRDS(benign_icc, file = "../main_rna_project/seurat_objects/clustered/bicc_clustered.rds")
+saveRDS(tumor_icc, file = "../main_rna_project/seurat_objects/clustered/ticc_clustered.rds")
 
 
 
