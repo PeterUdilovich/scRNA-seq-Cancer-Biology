@@ -3,8 +3,8 @@
 .RData
 .Ruserdata
 project_data/*.csv
-project_data/benign_breast
-project_data/malignant_breast_sample
+project_data/benign_breast/.h5
+project_data/malignant_breast_sample/.h5
 seurat_objects/clustered
 .RDataTmp1
 .DS_Store
