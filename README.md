@@ -1,4 +1,4 @@
-# scRNA-seq-Cancer-Biology Read Me
+# scRNA-seq-Cancer-Biology
 
 Comparative single-cell RNA-seq analysis of malignant breast and malignant bile duct cancer cells. Performed scRNA-seq preprocessing, clustering, and cell type identification.
 
