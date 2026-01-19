@@ -2,7 +2,11 @@
 .Rhistory
 .RData
 .Ruserdata
-project_data/
-seurat_objects/
 .RDataTmp*
 .DS_Store
+
+project_data/*
+seurat_objects/*
+
+!project_data/.gitkeep
+!seurat_objects/.gitkeep
