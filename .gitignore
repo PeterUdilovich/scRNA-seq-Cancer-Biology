@@ -2,9 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
-project_data/*.csv
-project_data/benign_breast/.h5
-project_data/malignant_breast_sample/.h5
-seurat_objects/clustered
-.RDataTmp1
+project_data/
+seurat_objects/
+.RDataTmp*
 .DS_Store
